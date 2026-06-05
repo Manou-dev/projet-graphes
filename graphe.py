@@ -56,3 +56,9 @@ class Graphe:
             for j in range(self.n):
                 print(f"{self.matrice[i][j]:>7}", end="")
             print()
+
+    def afficher_liste_adjacence(self):
+        print("\n=== LISTE D'AJACENCE ===")
+        for ue in self.ues:
+            voisins = ", ".join(self.liste[ue])
+            print(f" {ue} -> [{voisins}]")

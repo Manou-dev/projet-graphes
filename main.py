@@ -1,23 +1,24 @@
 from graphe import Graphe
+from donnees.donnees import detecter_conflits
 
-# On crée nos UE
-ues = ["INF212", "INF222", "INF232", "MAT232", "INF252"]
+# Charger les vraies données
+ues, conflits = detecter_conflits()
 
-# On crée le graphe
+# Créer le graphe avec les vraies UE
 g = Graphe(ues)
 
-# On ajoute les conflits (UE qui partagent des étudiants)
-g.ajouter_arete("INF212", "INF222")
-g.ajouter_arete("INF212", "INF232")
-g.ajouter_arete("INF222", "MAT232")
-g.ajouter_arete("INF232", "INF252")
-g.ajouter_arete("MAT232", "INF252")
+# Ajouter les vrais conflits détectés automatiquement
+for ue1, ue2 in conflits:
+    g.ajouter_arete(ue1, ue2)
 
-# On affiche les stats
+# Afficher les stats
 g.afficher_stats()
 
-#on affiche la matrice
+# Afficher la matrice
 g.afficher_matrice()
 
-# On visualise
+# Afficher la liste d'adjacence
+g.afficher_liste_adjacence()
+
+# Visualiser
 g.visualiser()
