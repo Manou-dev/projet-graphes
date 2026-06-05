@@ -7,7 +7,7 @@ ues, conflits = detecter_conflits()
 # Créer le graphe avec les vraies UE
 g = Graphe(ues)
 
-# Ajouter les vrais conflits détectés automatiquement
+# Ajouter les  conflits détectés automatiquement
 for ue1, ue2 in conflits:
     g.ajouter_arete(ue1, ue2)
 
